@@ -10,18 +10,17 @@ function calcBMI(weight, height) {
 const bmi = calcBMI("84,5", "1.85");
 console.log(bmi);
 
-// function calculateTotal(number) {
-//   let neededNumber = number;
+function calculateTotal(number) {
+  let total = 0;
+  while (number > 0) {
+    total += number;
+    console.log(number);
+    number -= 1;
+  }
+  return total;
+}
 
-//   while (neededNumber > 0) {
-//     neededNumber = number - 1;
-//     // total += neededNumber;
-//   }
-//   return neededNumber;
-// }
-// // const total = calculateTotal(3);
-
-// console.log(calculateTotal(3));
+console.log(calculateTotal(18)); // 171
 
 // const input = confirm("Are you agree?");
 
