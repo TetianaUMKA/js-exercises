@@ -22,6 +22,16 @@ function calculateTotal(number) {
 
 console.log(calculateTotal(18)); // 171
 
+function calculateTotalFor(number) {
+  let total = 0;
+  for (let i = 0; i <= number; i += 1) {
+    total += i;
+  }
+  return total;
+}
+
+console.log(calculateTotalFor(18)); // 171
+
 // const input = confirm("Are you agree?");
 
 // if (input) {
@@ -59,3 +69,19 @@ console.log(calculateTotal(18)); // 171
 //     reloadPage();
 //   }
 // }
+
+const userInput = document.querySelector("#userInput");
+
+const checkValue = "JavaScript";
+
+function getValue(event) {
+  console.log(event);
+  const userValue = event.target.value;
+  console.log(userValue);
+
+  if (userValue.toLowerCase() !== checkValue.toLowerCase()) {
+    console.log("Wrong answer!");
+  } else console.log("Good job!");
+}
+
+userInput.addEventListener("keydown", getValue);

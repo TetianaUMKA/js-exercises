@@ -107,3 +107,5 @@ const isDnd = false; // Do Not Disturb
 const canOpenChat = isOnline && isFriend && !isDnd;
 
 console.log("Can be opened a chat?", canOpenChat);
+
+// 7
