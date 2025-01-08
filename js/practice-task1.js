@@ -97,3 +97,22 @@ console.log(text);
 if (loremText.includes(searchValue)) {
   console.log("Yes, it includes!👍");
 } else console.log("Sorry, it doesn`t contain a search value🤷🏻‍♀️");
+
+// task
+
+const searchValueIndex = loremText.indexOf(searchValue);
+
+const isStartedWith = loremText[searchValueIndex].startsWith("a");
+
+console.log(isStartedWith);
+
+// task
+const userName = "jonas";
+
+function capitalizeFirstLetter(valueToChange) {
+  const capitalizedValue =
+    valueToChange.slice(0, 1).toUpperCase() + valueToChange.slice(1);
+  return capitalizedValue;
+}
+
+console.log(capitalizeFirstLetter(userName));
