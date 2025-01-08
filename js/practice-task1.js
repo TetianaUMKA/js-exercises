@@ -70,7 +70,7 @@ console.log(calculateTotalFor(18)); // 171
 //   }
 // }
 
-const userInput = document.querySelector("#userInput");
+// task
 
 const checkValue = "JavaScript";
 
@@ -84,4 +84,16 @@ function getValue(event) {
   } else console.log("Good job!");
 }
 
-userInput.addEventListener("keydown", getValue);
+userInput.addEventListener("blur", getValue);
+
+// task
+
+const searchValue = "alias";
+
+const loremText = text.innerText;
+
+console.log(text);
+
+if (loremText.includes(searchValue)) {
+  console.log("Yes, it includes!👍");
+} else console.log("Sorry, it doesn`t contain a search value🤷🏻‍♀️");
