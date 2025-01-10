@@ -109,3 +109,18 @@ const canOpenChat = isOnline && isFriend && !isDnd;
 console.log("Can be opened a chat?", canOpenChat);
 
 // 7
+
+function calcTotalEvenNumber(min, max) {
+  let total = 0;
+
+  while (min <= max) {
+    if (min % 2 === 0) {
+      total += min;
+      console.log(min);
+    }
+    min += 1;
+  }
+  return total;
+}
+
+console.log(calcTotalEvenNumber(1, 10));

@@ -96,7 +96,7 @@ console.log(text);
 
 if (loremText.includes(searchValue)) {
   console.log("Yes, it includes!👍");
-} else console.log("Sorry, it doesn`t contain a search value🤷🏻‍♀️");
+} else console.log("Sorry, it doesn`t contain a search value 🤷🏻‍♀️");
 
 // task
 
