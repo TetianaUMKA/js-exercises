@@ -124,3 +124,23 @@ function calcTotalEvenNumber(min, max) {
 }
 
 console.log(calcTotalEvenNumber(1, 10));
+
+function getSubscriptionPrice(type) {
+  switch (type) {
+    case "starter":
+      return 0;
+
+    case "professional":
+      return 1250;
+
+    case "organization":
+      return 3125;
+
+    default:
+      return "Invalid subscription type!";
+  }
+}
+console.log(getSubscriptionPrice("organization")); // повертає число 3125
+console.log(getSubscriptionPrice("professional")); // повертає число 1250
+console.log(getSubscriptionPrice("starter")); // повертає число 0
+console.log(getSubscriptionPrice("random")); // повертає рядок "Invalid subscription type!
