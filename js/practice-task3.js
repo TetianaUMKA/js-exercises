@@ -99,3 +99,45 @@ console.log(result); // ["Mercury", "Venus", "Mars", "Jupiter"];
 const thirdArray = ["Saturn", "Neptune"];
 console.log(firstArray.concat(thirdArray, secondArray));
 // ['Mercury', 'Venus', 'Saturn', 'Neptune', 'Mars', 'Jupiter', ]; // Order is important!
+
+const oldClients = ["Mango", "Ajax", "Poly", "Kiwi"];
+const newClients = ["Peach", "Houston"];
+
+const allClients = oldClients.concat(newClients);
+
+const clients = ["Mango", "Ajax", "Poly", "Kiwi", "Poly"];
+console.log(clients.indexOf("Poly")); // 2
+console.log(clients.indexOf("Monkong")); // -1
+
+function getSlice(array, value) {
+  const valueIndex = array.indexOf(value);
+  return valueIndex === -1 ? [] : array.slice(0, valueIndex + 1);
+}
+console.log(getSlice(["Mango", "Poly", "Ajax"], "Ajax")); // ["Mango", "Poly", "Ajax"]
+
+const planets2 = ["Earth", "Mars", "Venus"];
+
+planets2.push("Jupiter");
+console.log(planets2); // ['Earth', 'Mars', 'Venus', 'Jupiter']
+
+planets2.push("Saturn", "Neptune");
+console.log(planets2); // ['Earth', 'Mars', 'Venus', 'Jupiter', "Saturn", "Neptune"]
+
+const tags = [];
+
+for (let i = 0; i < 3; i += 1) {
+  tags.push(`tag-${i}`);
+}
+
+console.log(tags); // ["tag-0", "tag-1", "tag-2"]
+
+function createArrayOfNumbers(min, max) {
+  let arrayOfNumbers = [];
+  for (let i = min; i <= max; i += 1) {
+    arrayOfNumbers.push(i);
+  }
+  return arrayOfNumbers;
+}
+
+console.log(createArrayOfNumbers(14, 17)); // [14, 15, 16, 17]
+console.log(createArrayOfNumbers(29, 34)); // [29, 30, 31, 32, 33, 34]
