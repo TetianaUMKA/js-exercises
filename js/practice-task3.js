@@ -1,22 +1,25 @@
 // a primitive data type is assigned by value // address is in Call Stack
 const a = "origin";
 let b = a;
-console.log(a === b);
-console.log(b);
+console.log(a === b); // true
+console.log(b); // 'origin'
 
 b = 100000;
-console.log(b, a);
+console.log(b, a); // 1000 'origin'
 
 // a Non-Primitive data type by reference // address is in Memory Heap
 const array1 = [100, 200, 400];
 const array2 = array1;
 console.log(array1, array2);
+console.log(array1 === array2); // true
 
 array2[1] === 600;
+console.log(array1 === array2); // true
 
-console.log(array1 === array2);
+const array3 = [300, 700, 900];
+const array4 = [300, 700, 900];
 
-console.log(array1 === array2);
+console.log(array3 === array4); // false
 
 // Type Coercion and Type Casting
 
@@ -33,3 +36,66 @@ const nonEmptyArray = [1, 2, 3];
 
 console.log(Boolean(emptyArray)); // true
 console.log(Boolean(nonEmptyArray)); // true
+
+function getLength(array) {
+  return array.join("").length;
+}
+
+getLength(["Mango", "hurries", "to", "the", "train"]); // 22
+getLength(["M", "a", "n", "g", "o"]); // 5
+getLength(["top", "picks", "for", "you"]); // 14
+
+function transformString(string) {
+  const words = string.split("_");
+  console.log(words); // ['price', 'per', 'droid']
+  return words.join("-");
+}
+
+transformString("price_per_droid"); // "price-per-droid"
+
+const fruitName = "Mango";
+const letters = fruitName.split("");
+console.log(letters); // ["M", "a", "n", "g", "o"]
+
+const message = "JavaScript essentials";
+const words = message.split(" ");
+console.log(words); // ["JavaScript", "essentials"]
+
+const slug = "amazing-french-recipes";
+const slugParts = slug.split("-");
+console.log(slugParts); // ["amazing", "french", "recipes"]
+
+function calculateEngravingPrice(message, pricePerWord) {
+  return message.split(" ").length * pricePerWord;
+}
+
+calculateEngravingPrice("JavaScript is in my blood", 10); // 50
+calculateEngravingPrice("Web-development is creative work", 40); // 160
+
+const planets = ["Earth", "Mars", "Venus", "Jupiter", "Saturn"];
+console.log(planets.slice(0, 2)); // ['Earth', 'Mars']
+console.log(planets.slice(0, 4)); // ['Earth', 'Mars', 'Venus', 'Jupiter']
+console.log(planets.slice(1, 3)); // ['Mars', 'Venus']
+console.log(planets.slice(2)); // ["Venus", "Jupiter", "Saturn"]
+console.log(planets.slice(-2)); // ["Jupiter", "Saturn"]
+console.log(planets.slice()); // ["Earth", "Mars", "Venus", "Jupiter", "Saturn"]
+
+const fruits = ["apple", "plum", "pear", "orange", "banana"];
+
+const firstTwoEls = fruits.slice(0, 2);
+const nonExtremeEls = fruits.slice(1, fruits.length - 1);
+const lastThreeEls = fruits.slice(-3);
+
+console.log(firstTwoEls);
+console.log(nonExtremeEls);
+console.log(lastThreeEls);
+
+const firstArray = ["Mercury", "Venus"];
+const secondArray = ["Mars", "Jupiter"];
+const result = firstArray.concat(secondArray);
+
+console.log(result); // ["Mercury", "Venus", "Mars", "Jupiter"];
+
+const thirdArray = ["Saturn", "Neptune"];
+console.log(firstArray.concat(thirdArray, secondArray));
+// ['Mercury', 'Venus', 'Saturn', 'Neptune', 'Mars', 'Jupiter', ]; // Order is important!
