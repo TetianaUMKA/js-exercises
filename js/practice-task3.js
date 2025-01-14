@@ -47,7 +47,7 @@ getLength(["top", "picks", "for", "you"]); // 14
 
 function transformString(string) {
   const words = string.split("_");
-  console.log(words); // ['price', 'per', 'droid']
+  // console.log(words); // ['price', 'per', 'droid']
   return words.join("-");
 }
 
@@ -59,11 +59,11 @@ console.log(letters); // ["M", "a", "n", "g", "o"]
 
 const message = "JavaScript essentials";
 const words = message.split(" ");
-console.log(words); // ["JavaScript", "essentials"]
+// console.log(words); // ["JavaScript", "essentials"]
 
 const slug = "amazing-french-recipes";
 const slugParts = slug.split("-");
-console.log(slugParts); // ["amazing", "french", "recipes"]
+// console.log(slugParts); // ["amazing", "french", "recipes"]
 
 function calculateEngravingPrice(message, pricePerWord) {
   return message.split(" ").length * pricePerWord;
@@ -141,3 +141,56 @@ function createArrayOfNumbers(min, max) {
 
 console.log(createArrayOfNumbers(14, 17)); // [14, 15, 16, 17]
 console.log(createArrayOfNumbers(29, 34)); // [29, 30, 31, 32, 33, 34]
+
+const planets3 = ["Earth", "Mars", "Venus"];
+
+for (let i = 0; i < planets3.length; i += 1) {
+  console.log(planets3[i]);
+}
+
+function calculateTotalPrice(order) {
+  let total = 0;
+  for (let i = 0; i < order.length; i += 1) {
+    total += order[i];
+  }
+  return total;
+}
+console.log(calculateTotalPrice([412, 371, 94, 63, 176])); // 1116
+
+function getEvenNumbers(start, end) {
+  let evenNumbers = [];
+  for (let i = start; i <= end; i += 1) {
+    if (i % 2 === 0) {
+      evenNumbers.push(i);
+    }
+  }
+  return evenNumbers;
+}
+console.log(getEvenNumbers(3, 11)); // [4, 6, 8, 10]
+console.log(getEvenNumbers(7, 7)); // []
+
+const planets4 = ["Earth", "Mars", "Venus"];
+console.log(planets4.includes("Mars")); // true
+console.log(planets4.includes("Jupiter")); // false
+
+function checkStorage(storage, item) {
+  const formatItem = item.toLowerCase();
+  if (storage.includes(formatItem)) {
+    return `${formatItem} is available to order!`;
+  } else {
+    return "Sorry! We are out of stock!";
+  }
+}
+console.log(checkStorage(["apple", "plum", "pear"], "pLuM")); // "plum is available to order!"
+
+function getCommonElements(array1, array2) {
+  const commonArray = [];
+
+  for (let i = 0; i < array1.length; i += 1) {
+    if (array2.includes(array1[i])) {
+      commonArray.push(array1[i]);
+    }
+  }
+  return commonArray;
+}
+console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27])); // [12, 27, 3]
