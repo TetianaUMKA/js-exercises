@@ -194,3 +194,56 @@ function getCommonElements(array1, array2) {
   return commonArray;
 }
 console.log(getCommonElements([24, 12, 27, 3], [12, 8, 3, 36, 27])); // [12, 27, 3]
+
+function calculateTotalPrice2(order) {
+  let total = 0;
+  for (const item of order) {
+    total += item;
+  }
+  return total;
+}
+console.log(calculateTotalPrice2([412, 371, 94, 63, 176])); // 1116
+console.log(calculateTotalPrice2([])); // 0
+
+function multiply() {
+  let total = 1;
+  for (const arg of arguments) {
+    total *= arg;
+  }
+
+  return total;
+}
+console.log(multiply(1, 2, 3)); //  6
+console.log(multiply(1, 2, 3, 4)); //  24
+console.log(multiply(1, 2, 3, 4, 5)); //  120
+
+function foo() {
+  const args = Array.from(arguments); // It made true array
+  return args.join("-");
+}
+
+console.log(foo(1, 2, 3)); // "1-2-3"
+
+function longestString() {
+  let longest = "";
+  for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i].length > longest.length) {
+      longest = arguments[i];
+    }
+  }
+  return longest;
+}
+
+console.log(longestString("make", "remember", "speak", "see"));
+
+function biggestNumber() {
+  let biggest = "";
+  for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i] > biggest) {
+      biggest = arguments[i];
+    }
+  }
+  return biggest;
+}
+
+console.log(biggestNumber(4, 18, 270, 3));
