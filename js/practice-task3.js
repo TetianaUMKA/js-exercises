@@ -247,3 +247,33 @@ function biggestNumber() {
 }
 
 console.log(biggestNumber(4, 18, 270, 3));
+
+function createReversedArray() {
+  const reversedArray = Array.from(arguments).toReversed();
+  return reversedArray;
+}
+
+console.log(createReversedArray(412, 371, 94, 63, 176)); // [176, 63, 94, 371, 412]
+console.log(createReversedArray()); // []
+
+function calculateTax(amount, taxRate = 0.2) {
+  return amount * taxRate;
+}
+
+console.log(calculateTax(350, 0.1)); // 35
+console.log(calculateTax(600)); // 120
+
+//CAll STACK Important
+function fnA() {
+  console.log("second");
+  fnB();
+  console.log("fourth");
+}
+
+function fnB() {
+  console.log("third");
+}
+
+console.log("first");
+fnA();
+console.log("fifth");
