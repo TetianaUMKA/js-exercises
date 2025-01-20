@@ -102,3 +102,73 @@ apartment.location = { country: "Jamaica", city: "Kingston" };
 
 console.log(apartment.location.country); // "Jamaica"
 console.log(apartment.location.city); // "Kingston"
+
+const name = "Repair Droid";
+const price = 2500;
+const image = "https://via.placeholder.com/640x480";
+const tags = ["on sale", "trending", "best buy"];
+
+const product = {
+  name,
+  price,
+  image,
+  tags,
+};
+
+console.log(product.price); // 2500
+console.log(product.tags); // ["on sale", "trending", "best buy"]
+
+const emailInputName = "email";
+const passwordInputName = "password";
+
+const credentials = {
+  [emailInputName]: "henry.carter@aptmail.com",
+  [passwordInputName]: "jqueryismyjam",
+};
+
+console.log(credentials.email); // "henry.carter@aptmail.com"
+console.log(credentials.password); // "jqueryismyjam"
+
+const apartment4 = {
+  descr: "Spacious apartment in the city center",
+  rating: 4,
+  price: 2153,
+};
+
+const keys = [];
+const values = [];
+
+for (const key in apartment4) {
+  keys.push(key);
+  values.push(apartment4[key]);
+}
+
+console.log(keys);
+console.log(values);
+
+const oneBook = {
+  author: "Bernard Cornwell",
+  genres: ["historical prose", "adventure"],
+  rating: 8.38,
+};
+const keysOneBook = Object.keys(oneBook);
+console.log(keysOneBook); // ['author', 'genres', 'rating']
+
+for (const key of keysOneBook) {
+  console.log(key); // each key of object
+  console.log(oneBook[key]); // each value of object
+}
+
+const valuesOneBook = [];
+for (const key of keysOneBook) {
+  valuesOneBook.push(oneBook[key]);
+}
+console.log(valuesOneBook);
+
+function countProps(object) {
+  return Object.keys(object).length;
+}
+console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }));
+
+const valuesOneBook2 = Object.values(oneBook);
+console.log(valuesOneBook2);
