@@ -172,3 +172,50 @@ console.log(countProps({ mail: "poly@mail.com", isOnline: true, score: 500 }));
 
 const valuesOneBook2 = Object.values(oneBook);
 console.log(valuesOneBook2);
+
+function countTotalSalary(salaries) {
+  let totalSalary = 0;
+  for (const salary of Object.values(salaries)) {
+    totalSalary += salary;
+  }
+  return totalSalary;
+}
+console.log(countTotalSalary({ mango: 100, poly: 150, alfred: 80 })); // 330
+
+const colors = [
+  { hex: "#f44336", rgb: "244,67,54" },
+  { hex: "#2196f3", rgb: "33,150,243" },
+  { hex: "#4caf50", rgb: "76,175,80" },
+  { hex: "#ffeb3b", rgb: "255,235,59" },
+];
+const hexColors = [];
+const rgbColors = [];
+
+for (const color of colors) {
+  hexColors.push(color.hex);
+  rgbColors.push(color.rgb);
+}
+
+console.log(hexColors);
+console.log(rgbColors);
+
+function getProductPrice(productName) {
+  const products = [
+    { name: "Radar", price: 1300, quantity: 4 },
+    { name: "Scanner", price: 2700, quantity: 3 },
+    { name: "Droid", price: 400, quantity: 7 },
+    { name: "Grip", price: 1200, quantity: 9 },
+  ];
+
+  let productPriceToSearchFor = null;
+
+  for (const product of products) {
+    if (product.name === productName) {
+      productPriceToSearchFor = product.price;
+    }
+  }
+  return productPriceToSearchFor;
+}
+
+console.log(getProductPrice("Scanner")); // 2700
+console.log(getProductPrice("Engine")); // null
