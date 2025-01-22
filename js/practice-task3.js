@@ -277,3 +277,26 @@ function fnB() {
 console.log("first");
 fnA();
 console.log("fifth");
+
+function changeText(text) {
+  const textToArray = text.trim().split(" ");
+  return textToArray.slice(1, textToArray.length - 1).join(" ");
+}
+const changedText = changeText("  Some interesting a text message");
+console.log(changedText); // 'interesting a text'
+
+/**
+ * == searchMinNumber ==
+ * @param {array} numbers
+ * @returns {number} - a min number among the numbers in the array
+ */
+function searchMinNumber(numbers) {
+  let minNumber = numbers[0];
+  for (const number of numbers) {
+    if (number < minNumber) {
+      minNumber = number;
+    }
+  }
+  return minNumber;
+}
+console.log(searchMinNumber([27, 59, 12, 9, 87, 2, 4, 37])); // 2

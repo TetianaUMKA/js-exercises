@@ -207,14 +207,21 @@ function getProductPrice(productName) {
     { name: "Grip", price: 1200, quantity: 9 },
   ];
 
-  let productPriceToSearchFor = null;
+  // let productPriceToSearchFor = null;
+
+  // for (const product of products) {
+  //   if (product.name === productName) {
+  //     productPriceToSearchFor = product.price;
+  //   }
+  // }
+  // return productPriceToSearchFor;
 
   for (const product of products) {
     if (product.name === productName) {
-      productPriceToSearchFor = product.price;
+      return product.name;
     }
   }
-  return productPriceToSearchFor;
+  return null;
 }
 
 console.log(getProductPrice("Scanner")); // 2700
