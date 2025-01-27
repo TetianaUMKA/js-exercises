@@ -334,3 +334,139 @@ const atTheOldToad3 = {
 atTheOldToad3.addPotion("Invisibility");
 atTheOldToad3.addPotion("Power potion");
 console.log(atTheOldToad3.getPotions()); // ["Speed potion", "Stone skin", "Invisibility", "Power potion"]
+
+const atTheOldToad4 = {
+  potions: [
+    { name: "Speed potion", price: 460 },
+    { name: "Stone skin", price: 520 },
+  ],
+  getPotions() {
+    return this.potions;
+  },
+  addPotion(newPotion) {
+    this.potions.push(newPotion);
+  },
+  getTotalPrice() {
+    let totalPrice = 0;
+    for (const potion of this.potions) {
+      totalPrice += potion.price;
+    }
+    return totalPrice;
+  },
+};
+atTheOldToad4.addPotion({ name: "Invisibility", price: 620 });
+console.log(atTheOldToad4.getTotalPrice());
+
+const bookShelf7 = {
+  books: [
+    { title: "The Last Kingdom", rating: 8 },
+    { title: "The Mist", rating: 6 },
+  ],
+  changeRating(bookName, newRating) {
+    for (const book of this.books) {
+      if (book.title === bookName) {
+        book.rating = newRating;
+      }
+    }
+  },
+  showRating(bookName) {
+    for (const book of this.books) {
+      if (book.title === bookName) {
+        console.log(book.rating);
+      }
+    }
+  },
+};
+bookShelf7.changeRating("The Mist", 9);
+bookShelf7.changeRating("The Last Kingdom", 4);
+console.log(bookShelf7.books[1].rating);
+bookShelf7.showRating("The Mist");
+
+//rest
+function add(...args) {
+  let total = 0;
+  for (const arg of args) {
+    total += arg;
+  }
+  return total;
+}
+console.log(add(32, 6, 13, 19, 8)); // 78
+
+function addOverNum(value, ...args) {
+  const rest = args;
+  console.log(value, rest);
+  let totalOfLarger = 0;
+  for (const arg of args) {
+    if (arg > value) {
+      totalOfLarger += arg;
+    }
+  }
+  return totalOfLarger;
+}
+console.log(addOverNum(20, 74, 11, 62, 46, 12, 36)); // 218
+
+//spread
+const temps = [14, -4, 25, 8, 11];
+console.log(...temps); // 14 -4 25 8 11
+console.log(Math.max(...temps)); // 25
+
+function getExtremeScores(scores) {
+  console.log(...scores); // 89 64 42 17 93 51 26
+  return { best: Math.max(...scores), worst: Math.min(...scores) };
+}
+console.log(getExtremeScores([89, 64, 42, 17, 93, 51, 26])); // { best: 93, worst: 17 }
+
+const temps2 = [14, -4, 25, 8, 11];
+// we make exactly the same but independent copy of the array
+const copyOfTemps = [...temps2];
+console.log(copyOfTemps); // [14, -4, 25, 8, 11]
+
+const lastWeekTemps = [14, 25, 11];
+const currentWeekTemps = [23, 17, 18];
+const allTemps = [...lastWeekTemps, ...currentWeekTemps];
+console.log(allTemps); // [14, 25, 11, 23, 17, 18]
+
+const firstGroupScores = [64, 42, 93];
+const secondGroupScores = [89, 14, 51, 26];
+const thirdGroupScores = [29, 47, 18, 97, 81];
+const allScores = [
+  ...firstGroupScores,
+  ...secondGroupScores,
+  ...thirdGroupScores,
+];
+const bestScore = Math.max(...allScores);
+const worstScore = Math.min(...allScores);
+console.log(allScores); // [64, 42, 93, 89, 14, 51, 26, 29, 47, 18, 97, 81]
+console.log("bestScore:", bestScore, "worstScore:", worstScore); // bestScore: 97 worstScore: 14
+
+// spread of objects
+const first = { propA: 5, propB: 10 };
+const second = { propC: 15 };
+const third = { ...first, ...second };
+console.log(third); // { propA: 5, propB: 10, propC: 15 }
+
+const firstBox = { propA: 5, propB: 10, propC: 50 };
+const secondBox = { propC: 15 };
+const thirdBox = { propB: 20, ...firstBox, ...second };
+console.log(thirdBox); // { propA: 5, propB: 10, propC: 15 }
+const fourthBox = { ...firstBox, ...secondBox, propB: 20 };
+console.log(fourthBox); // { propA: 5, propB: 20, propC: 15 }
+const fifthBox = { ...firstBox, propB: 20, ...secondBox };
+console.log(fifthBox); // { propA: 5, propB: 20, propC: 15 }
+
+// task
+const defaultSettings = {
+  theme: "light",
+  public: true,
+  withPassword: false,
+  minNumberOfQuestions: 10,
+  timePerQuestion: 60,
+};
+const overrideSettings = {
+  public: false,
+  withPassword: true,
+  timePerQuestion: 30,
+};
+const finalSettings = { ...defaultSettings, ...overrideSettings };
+
+console.log(finalSettings);
