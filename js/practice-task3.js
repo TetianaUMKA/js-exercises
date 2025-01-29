@@ -300,3 +300,39 @@ function searchMinNumber(numbers) {
   return minNumber;
 }
 console.log(searchMinNumber([27, 59, 12, 9, 87, 2, 4, 37])); // 2
+
+// way 1
+function formatTime(minutes) {
+  const formattedMinutes = minutes % 60;
+  const formattedHours = (minutes - formattedMinutes) / 60;
+  return `${formattedHours < 10 ? "0" + formattedHours : formattedHours}:${
+    formattedMinutes < 10 ? "0" + formattedMinutes : formattedMinutes
+  }`;
+}
+console.log(formatTime(1441)); // "24:01"
+console.log(formatTime(450)); // "07:30"
+
+// way 2
+function formatTime2(minutes) {
+  const formattedHours = String(Math.floor(minutes / 60));
+  const formattedMinutes = String(minutes % 60);
+  return `${formattedHours.padStart(2, 0)}:${formattedMinutes.padStart(2, 0)}`;
+}
+console.log(formatTime2(1441)); // "24:01"
+console.log(formatTime2(450)); // "07:30"
+
+const numbersArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+function getCombination(arr, count) {
+  let newArray = [];
+  for (let i = 0; i < arr.length; i += count) {
+    const combination = arr.slice(i, i + count);
+    if (combination.length === count) {
+      newArray.push(combination);
+    }
+
+    // newArray.push(arr.slice(i, i + count));
+  }
+  return newArray;
+}
+console.log(getCombination(numbersArray, 3));
+console.log(getCombination(numbersArray, 2));

@@ -470,3 +470,18 @@ const overrideSettings = {
 const finalSettings = { ...defaultSettings, ...overrideSettings };
 
 console.log(finalSettings);
+
+// Recursive function is a function that returns the maximum size of the call stack available in the JavaScript runtime in which the code is run
+
+// const factorial = (n) => {
+//   if (n === 0) {
+//     return 1;
+//   } else {
+//     return n * factorial(n - 1);
+//   }
+// };
+// console.log(factorial(10)); // 3628800
+
+// const fibonacci = (n) => (n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2));
+// console.log(fibonacci(10));
+// // 55
