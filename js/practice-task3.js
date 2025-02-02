@@ -336,3 +336,54 @@ function getCombination(arr, count) {
 }
 console.log(getCombination(numbersArray, 3));
 console.log(getCombination(numbersArray, 2));
+
+const courses = ["HTML", "CSS", "JavaScript", "React", "PostgreSQL"];
+let userCourses = [];
+function addCourse(name, courseCollectionForChange) {
+  if (!courseCollectionForChange.includes(name)) {
+    courseCollectionForChange.push(name);
+  } else if (courseCollectionForChange.includes(name)) {
+    console.log("You already have got this one");
+  }
+}
+function removeCourse(name, courseCollectionForChange) {
+  for (const course of courseCollectionForChange) {
+    if (course === name) {
+      courseCollectionForChange.splice(
+        courseCollectionForChange.indexOf(course),
+        1
+      );
+      return;
+    }
+  }
+  return console.log("The course with such name is not found");
+}
+function updateCourse(oldName, newName, courseCollectionForChange) {
+  for (const course of courseCollectionForChange) {
+    if (course === oldName) {
+      courseCollectionForChange.splice(
+        courseCollectionForChange.indexOf(course),
+        1,
+        newName
+      );
+      return;
+    }
+  }
+  return console.log("The course with such name is not found");
+}
+
+addCourse("JavaScript", userCourses);
+addCourse("PostgreSQL", userCourses);
+console.log(userCourses);
+addCourse("Figma", courses);
+console.log(courses);
+updateCourse("JavaScript", "React", userCourses);
+console.log(userCourses);
+updateCourse("Figma", "Design", courses);
+console.log(courses);
+updateCourse("DevOps", "QA", courses);
+console.log(courses);
+removeCourse("PostgreSQL", userCourses);
+console.log(userCourses);
+removeCourse("Design", courses);
+console.log(courses);
