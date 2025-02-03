@@ -485,3 +485,27 @@ console.log(finalSettings);
 // const fibonacci = (n) => (n <= 2 ? 1 : fibonacci(n - 1) + fibonacci(n - 2));
 // console.log(fibonacci(10));
 // // 55
+
+// computational properties //
+
+// example 1
+const car = {
+  price: 8000,
+};
+const model = "Honda"; // we can receive value
+const param = "model";
+
+car[param] = model;
+console.log(car);
+console.log(car[param]);
+console.log(car["model"]);
+console.log(car.model);
+
+// example 2
+const userApps = {
+  app1: "Google disk",
+  app2: "Sheets",
+  app3: "Docs",
+};
+const userSelect = "app2";
+console.log(userApps[userSelect]);
