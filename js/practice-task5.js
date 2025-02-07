@@ -115,7 +115,7 @@ console.log(changeEven([44, 13, 81, 92, 36, 54], 100));
 // array.method(function (currentValue, index, array) {});
 // array.method((currentValue, index, array) => {});
 
-// method forEach always returns undefined
+// method forEach() always returns undefined
 const filterArray2 = (numbers, value) => {
   const filteredNumbers = [];
 
@@ -129,7 +129,7 @@ const filterArray2 = (numbers, value) => {
 };
 console.log(filterArray2([12, 24, 8, 41, 76], 38)); // [41, 76]
 
-// method map always returns new array
+// method map() always returns new array
 
 const planets = ["Earth", "Mars", "Venus", "Jupiter"];
 const planetsInUpperCase = planets.map((planet) => planet.toUpperCase());
@@ -176,7 +176,7 @@ const books = [
 const titles = books.map((book) => book.title);
 console.log(titles);
 
-// method flatMap always returns new array // this method flats a multi-level array into one level
+// method flatMap()  always returns new array // this method flats a multi-level array into one level
 
 const students2 = [
   { name: "Mango", courses: ["mathematics", "physics"] },
@@ -297,7 +297,7 @@ const getUserEmails = (users) => {
 };
 console.log(getUserEmails(users));
 
-// method filter returns new array which would be contain elements that satisfy the condition of the callback function
+// method filter() returns new array which would be contain elements that satisfy the condition of the callback function
 
 const values = [51, -3, 27, 21, -68, 42, -37];
 
@@ -451,3 +451,306 @@ const getUsersWithAge = (users, minAge, maxAge) => {
   return users.filter((user) => user.age >= minAge && user.age <= maxAge);
 };
 console.log(getUsersWithAge(usersData, 24, 35));
+
+// method find()
+
+const colorPickerOptions = [
+  { label: "red", color: "#F44336" },
+  { label: "green", color: "#4CAF50" },
+  { label: "blue", color: "#2196F3" },
+  { label: "pink", color: "#E91E63" },
+  { label: "indigo", color: "#3F51B5" },
+];
+
+colorPickerOptions.find((option) => option.label === "blue"); // { label: "blue", color: "#2196F3" }
+colorPickerOptions.find((option) => option.label === "pink"); // { label: "pink", color: "#E91E63" }
+colorPickerOptions.find((option) => option.label === "white"); // undefined
+
+const books4 = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  { title: "Redder Than Blood", author: "Tanith Lee", rating: 7.94 },
+];
+const BOOK_TITLE = "The Dream of a Ridiculous Man";
+const AUTHOR1 = "Robert Sheckley";
+const bookWithTitle = books4.find((book) => book.title === BOOK_TITLE);
+const bookByAuthor = books4.find((book) => book.author === AUTHOR1);
+console.log(bookWithTitle);
+console.log(bookByAuthor);
+
+// method every()
+
+console.log([1, 2, 3, 4, 5].every((value) => value >= 0)); // true
+console.log([1, 2, 3, -10, 4, 5].every((value) => value >= 0)); // false
+
+const products = [
+  { name: "apple", quantity: 2 },
+  { name: "orange", quantity: 5 },
+  { name: "plum", quantity: 0 },
+];
+const hasEveryProduct = products.every((product) => product.quantity > 0);
+console.log(hasEveryProduct); // false
+
+// method some()
+
+console.log([1, 2, 3, 4, 5].some((value) => value >= 0)); // true
+console.log([-7, -20, 3, -10, -14].some((value) => value >= 0)); // true
+console.log([1, 2, 3, 4, 5].some((value) => value < 0)); // false
+
+const users5 = [
+  {
+    name: "Moore Hensley",
+    email: "moorehensley@indexia.com",
+    eyeColor: "blue",
+    friends: ["Sharron Pace"],
+    isActive: false,
+    balance: 2811,
+    gender: "male",
+  },
+  {
+    name: "Sharlene Bush",
+    email: "sharlenebush@tubesys.com",
+    eyeColor: "blue",
+    friends: ["Briana Decker", "Sharron Pace"],
+    isActive: true,
+    balance: 3821,
+    gender: "female",
+  },
+  {
+    name: "Ross Vazquez",
+    email: "rossvazquez@xinware.com",
+    eyeColor: "green",
+    friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+    isActive: false,
+    balance: 3793,
+    gender: "male",
+  },
+  {
+    name: "Elma Head",
+    email: "elmahead@omatom.com",
+    eyeColor: "green",
+    friends: ["Goldie Gentry", "Aisha Tran"],
+    isActive: true,
+    balance: 2278,
+    gender: "female",
+  },
+  {
+    name: "Carey Barr",
+    email: "careybarr@nurali.com",
+    eyeColor: "blue",
+    friends: ["Jordan Sampson", "Eddie Strong"],
+    isActive: true,
+    balance: 3951,
+    gender: "male",
+  },
+  {
+    name: "Blackburn Dotson",
+    email: "blackburndotson@furnigeer.com",
+    eyeColor: "brown",
+    friends: ["Jacklyn Lucas", "Linda Chapman"],
+    isActive: false,
+    balance: 1498,
+    gender: "male",
+  },
+  {
+    name: "Sheree Anthony",
+    email: "shereeanthony@kog.com",
+    eyeColor: "brown",
+    friends: ["Goldie Gentry", "Briana Decker"],
+    isActive: true,
+    balance: 2764,
+    gender: "female",
+  },
+];
+const isAnyUserActive = (users) => {
+  return users5.some((user) => user.isActive);
+};
+console.log(isAnyUserActive());
+
+// method reduce()
+
+// array.reduce((previousValue, element, index, array) => {}initialValue); //
+
+const total = [2, 7, 3].reduce((previousValue, number) => {
+  return previousValue + number;
+}, 0);
+
+console.log(total); // 12
+
+// task
+const players = {
+  mango: 1270,
+  poly: 468,
+  ajax: 710,
+  kiwi: 244,
+};
+const playtimes = Object.values(players); // [1270, 468, 710, 244]
+
+const totalPlayTime = playtimes.reduce((previousTotalPlayTime, playTime) => {
+  return previousTotalPlayTime + playTime;
+}, 0);
+
+const averagePlayTime = totalPlayTime / playtimes.length;
+console.log(averagePlayTime);
+
+// task
+const students4 = [
+  { name: "Mango", score: 83 },
+  { name: "Poly", score: 59 },
+  { name: "Ajax", score: 37 },
+  { name: "Kiwi", score: 94 },
+  { name: "Houston", score: 64 },
+];
+
+const totalScore = students4.reduce((total, student) => {
+  return total + student.score;
+}, 0);
+
+const averageScore = totalScore / students4.length;
+console.log(averageScore);
+
+// task
+const players2 = [
+  { name: "Mango", playtime: 1270, gamesPlayed: 4 },
+  { name: "Poly", playtime: 469, gamesPlayed: 2 },
+  { name: "Ajax", playtime: 690, gamesPlayed: 3 },
+  { name: "Kiwi", playtime: 241, gamesPlayed: 1 },
+];
+
+const totalAveragePlaytimePerGame = players2.reduce((acc, player) => {
+  return acc + player.playtime / player.gamesPlayed;
+}, 0);
+
+console.log(totalAveragePlaytimePerGame);
+
+// task
+const calculateTotalBalance = (users) => {
+  return users.reduce((previousAcc, user) => {
+    return previousAcc + user.balance;
+  }, 0);
+};
+console.log(
+  calculateTotalBalance([
+    {
+      name: "Moore Hensley",
+      email: "moorehensley@indexia.com",
+      eyeColor: "blue",
+      friends: ["Sharron Pace"],
+      isActive: false,
+      balance: 2811,
+      gender: "male",
+    },
+    {
+      name: "Sharlene Bush",
+      email: "sharlenebush@tubesys.com",
+      eyeColor: "blue",
+      friends: ["Briana Decker", "Sharron Pace"],
+      isActive: true,
+      balance: 3821,
+      gender: "female",
+    },
+    {
+      name: "Ross Vazquez",
+      email: "rossvazquez@xinware.com",
+      eyeColor: "green",
+      friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"],
+      isActive: false,
+      balance: 3793,
+      gender: "male",
+    },
+    {
+      name: "Elma Head",
+      email: "elmahead@omatom.com",
+      eyeColor: "green",
+      friends: ["Goldie Gentry", "Aisha Tran"],
+      isActive: true,
+      balance: 2278,
+      gender: "female",
+    },
+    {
+      name: "Carey Barr",
+      email: "careybarr@nurali.com",
+      eyeColor: "blue",
+      friends: ["Jordan Sampson", "Eddie Strong"],
+      isActive: true,
+      balance: 3951,
+      gender: "male",
+    },
+    {
+      name: "Blackburn Dotson",
+      email: "blackburndotson@furnigeer.com",
+      eyeColor: "brown",
+      friends: ["Jacklyn Lucas", "Linda Chapman"],
+      isActive: false,
+      balance: 1498,
+      gender: "male",
+    },
+    {
+      name: "Sheree Anthony",
+      email: "shereeanthony@kog.com",
+      eyeColor: "brown",
+      friends: ["Goldie Gentry", "Briana Decker"],
+      isActive: true,
+      balance: 2764,
+      gender: "female",
+    },
+  ])
+);
+
+// method toSorted() // array.toSorted() according to Unicode
+// but we have some difficulties
+
+const scores = [27, 2, 41, 4, 7, 3, 75];
+console.log(scores.toSorted()); // [2, 27, 3, 4, 41, 7, 75]
+
+const fruits = ["Jacob", "Artemis", "Solomon", "Adrian", "Kai", "Ganymede"];
+console.log(fruits.toSorted()); // [ "Adrian", "Artemis", "Ganymede", "Jacob", "Kai", "Solomon" ]
+
+const letters = ["b", "B", "a", "A", "c", "C"];
+console.log(letters.toSorted()); // ["A", "B", "C", "a", "b", "c"]
+
+// task
+const releaseDates = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+const authors = [
+  "Tanith Lee",
+  "Bernard Cornwell",
+  "Robert Sheckley",
+  "Fyodor Dostoevsky",
+];
+
+const ascendingReleaseDates = releaseDates.toSorted();
+const alphabeticalAuthors = authors.toSorted();
+console.log(ascendingReleaseDates); // [1967, 1973, 1984, 1997, 2008, 2012, 2016]
+console.log(alphabeticalAuthors); // ['Bernard Cornwell', 'Fyodor Dostoevsky', 'Robert Sheckley', 'Tanith Lee']
+
+// creating your own order by adding a compare function helps avoid difficulties
+
+const scores2 = [61, 19, 74, 35, 92, 56];
+// up = ascending
+const ascendingScores = scores2.toSorted((a, b) => a - b);
+console.log(ascendingScores); // [19, 35, 56, 61, 74, 92]
+// down = descending
+const descendingScores = scores.toSorted((a, b) => b - a);
+console.log(descendingScores); // [92, 74, 61, 56, 35, 19]
+
+// task
+
+const releaseDates2 = [2016, 1967, 2008, 1984, 1973, 2012, 1997];
+
+const ascendingReleaseDates2 = releaseDates2.toSorted();
+console.log(ascendingReleaseDates2);
+const descendingReleaseDates2 = releaseDates2.toSorted((a, b) => b - a);
+console.log(descendingReleaseDates2);
