@@ -754,3 +754,106 @@ const ascendingReleaseDates2 = releaseDates2.toSorted();
 console.log(ascendingReleaseDates2);
 const descendingReleaseDates2 = releaseDates2.toSorted((a, b) => b - a);
 console.log(descendingReleaseDates2);
+
+// method localeCompare() // as callback function for toSorted()
+// firstString.localeCompare(secondString) //
+
+console.log("a".localeCompare("b")); // -1
+console.log("b".localeCompare("a")); // 1
+console.log("a".localeCompare("a")); // 0
+console.log("b".localeCompare("b")); // 0
+
+const students5 = ["Jacob", "Artemis", "Solomon", "Adrian", "Kai", "Ganymede"];
+
+const inAlphabetOrder = students5.toSorted((a, b) => a.localeCompare(b));
+console.log(inAlphabetOrder); // [ "Adrian", "Artemis", "Ganymede", "Jacob", "Kai", "Solomon" ]
+
+const inReversedOrder = students5.toSorted((a, b) => b.localeCompare(a));
+console.log(inReversedOrder); // [ "Solomon", "Kai", "Jacob", "Ganymede", "Artemis", "Adrian" ]
+
+// task
+const authors2 = [
+  "Tanith Lee",
+  "Bernard Cornwell",
+  "Robert Sheckley",
+  "Fyodor Dostoevsky",
+  "Howard Lovecraft",
+];
+const authorsInAlphabetOrder = authors2.toSorted();
+console.log(authorsInAlphabetOrder);
+
+const authorsInReversedOrder = authors2.toSorted((a, b) => b.localeCompare(a));
+console.log(authorsInReversedOrder);
+
+// an example of the use with the array of objects
+
+const students6 = [
+  { name: "Mango", score: 83 },
+  { name: "Poly", score: 59 },
+  { name: "Ajax", score: 37 },
+  { name: "Kiwi", score: 94 },
+];
+
+const inAscendingScoreOrder = students6.toSorted(
+  (firstStudent, secondStudent) => firstStudent.score - secondStudent.score
+);
+console.log(inAscendingScoreOrder);
+
+const inDescendingScoreOrder = students6.toSorted(
+  (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
+);
+console.log(inDescendingScoreOrder);
+
+const inAlphabeticalOrder = students6.toSorted((firstStudent, secondStudent) =>
+  firstStudent.name.localeCompare(secondStudent.name)
+);
+console.log(inAlphabeticalOrder);
+
+// task
+
+const books5 = [
+  {
+    title: "The Last Kingdom",
+    author: "Bernard Cornwell",
+    rating: 8.38,
+  },
+  {
+    title: "Beside Still Waters",
+    author: "Robert Sheckley",
+    rating: 8.51,
+  },
+  {
+    title: "The Dream of a Ridiculous Man",
+    author: "Fyodor Dostoevsky",
+    rating: 7.75,
+  },
+  {
+    title: "Redder Than Blood",
+    author: "Tanith Lee",
+    rating: 7.94,
+  },
+  {
+    title: "Enemy of God",
+    author: "Bernard Cornwell",
+    rating: 8.67,
+  },
+];
+const sortedByAuthorName1 = books5.toSorted((firstBook, secondBook) =>
+  firstBook.author.localeCompare(secondBook.author)
+);
+console.log(sortedByAuthorName1);
+
+const sortedByReversedAuthorName1 = books5.toSorted((firstBook, secondBook) =>
+  secondBook.author.localeCompare(firstBook.author)
+);
+console.log(sortedByReversedAuthorName1);
+
+const sortedByAscendingRating1 = books5.toSorted(
+  (firstBook, secondBook) => firstBook.rating - secondBook.rating
+);
+console.log(sortedByAscendingRating1);
+
+const sortedByDescendingRating1 = books5.toSorted(
+  (firstBook, secondBook) => secondBook.rating - firstBook.rating
+);
+console.log(sortedByDescendingRating1);
