@@ -710,8 +710,7 @@ console.log(
   ])
 );
 
-// method toSorted() // array.toSorted() according to Unicode
-// but we have some difficulties
+// method toSorted() // array.toSorted() according to Unicode, but we have some difficulties
 
 const scores = [27, 2, 41, 4, 7, 3, 75];
 console.log(scores.toSorted()); // [2, 27, 3, 4, 41, 7, 75]
@@ -736,7 +735,7 @@ const alphabeticalAuthors = authors.toSorted();
 console.log(ascendingReleaseDates); // [1967, 1973, 1984, 1997, 2008, 2012, 2016]
 console.log(alphabeticalAuthors); // ['Bernard Cornwell', 'Fyodor Dostoevsky', 'Robert Sheckley', 'Tanith Lee']
 
-// creating your own order by adding a compare function helps avoid difficulties
+// creating your own order by adding a compare callback function helps avoid difficulties
 
 const scores2 = [61, 19, 74, 35, 92, 56];
 // up = ascending
