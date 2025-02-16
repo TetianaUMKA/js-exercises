@@ -927,3 +927,50 @@ const names2 = books6
   .filter((book) => book.rating > MIN_BOOK_RATING)
   .map((book) => book.author)
   .toSorted((a, b) => a.localeCompare(b));
+
+// addition practice for module #5
+// task 1
+
+function eachElement(array, callback) {
+  const newArray = [];
+  array.forEach((eachValue) => newArray.push(callback(eachValue)));
+  return newArray;
+}
+
+console.log(
+  eachElement([56, 87, 34, 96, 23], function (value) {
+    return value * 2;
+  })
+);
+
+console.log(
+  eachElement([56, 87, 34, 96, 23], function (value) {
+    return value - 10;
+  })
+);
+
+console.log(
+  eachElement([56, 87, 34, 96, 23], function (value) {
+    return Math.sqrt(value);
+  })
+);
+console.log(
+  eachElement([2, 3, 5, 9, 7], function (value) {
+    return Math.pow(value, 5);
+  })
+);
+
+console.log(
+  eachElement([1.5, 2.1, 16.4, 9.7, 11.3], function (value) {
+    return Math.ceil(value);
+  })
+);
+
+console.log(
+  eachElement([1.5, 2.1, 16.4, 9.7, 11.3], (value) => Math.floor(value))
+);
+
+// task 2
+const arrowPossibility = (...args) => args.map((value) => value * 2);
+
+console.log(arrowPossibility(67, 346, 985, 234, 98, 25));
