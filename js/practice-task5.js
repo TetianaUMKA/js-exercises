@@ -974,3 +974,59 @@ console.log(
 const arrowPossibility = (...args) => args.map((value) => value * 2);
 
 console.log(arrowPossibility(67, 346, 985, 234, 98, 25));
+
+// examples
+const model = "Toyota";
+const price = "15000 USD";
+const yearsOld = "8";
+const withPhoto = true;
+
+const carToSell = {
+  model,
+  price,
+  yearsOld,
+};
+
+console.log(carToSell);
+
+carToSell["withPhoto"] = withPhoto;
+
+console.log(carToSell);
+
+const propertyName = "color";
+carToSell[propertyName] = "black";
+
+console.log(carToSell);
+
+// Operator in -> Boolean
+console.log("price" in carToSell); // true
+console.log("something" in carToSell); // false
+
+for (const key in carToSell) {
+  console.log(key); // model // price // yearsOld // withPhoto // color
+  console.log(carToSell[key]); // Toyota // 15000 USD // 8 // true // black
+}
+
+// task
+const players3 = {
+  Den: 60,
+  Kate: 130,
+  William: 45,
+  Matthew: 120,
+  Ethan: 40,
+  David: 55,
+};
+
+function getAverageTime(players) {
+  const playersTime = Object.values(players);
+  let totalPlayTime = 0;
+  for (const playerTime of playersTime) {
+    totalPlayTime += playerTime;
+  }
+
+  return `Count of players ${playersTime.length}, average time ${
+    totalPlayTime / playersTime.length
+  }`;
+}
+
+console.log(getAverageTime(players3));
