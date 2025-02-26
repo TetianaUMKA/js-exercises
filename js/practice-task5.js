@@ -1030,3 +1030,53 @@ function getAverageTime(players) {
 }
 
 console.log(getAverageTime(players3));
+
+// task
+function getOnlineFriends(allFriends) {
+  const onlineFriends = [];
+  for (const friend of allFriends) {
+    if (friend.isOnline) {
+      onlineFriends.push(friend.name);
+    }
+  }
+  return onlineFriends;
+}
+
+console.log(
+  getOnlineFriends([
+    { name: "Jones", isOnline: false },
+    { name: "Emma", isOnline: true },
+    { name: "Anna", isOnline: false },
+    { name: "Max", isOnline: false },
+    { name: "Ozi", isOnline: true },
+    { name: "Eddy", isOnline: false },
+  ])
+);
+
+// task
+const goodsStore = [
+  { name: "dress", price: 1200, quantity: 34 },
+  { name: "shirt", price: 960, quantity: 63 },
+  { name: "coat", price: 3800, quantity: 21 },
+  { name: "skirt", price: 870, quantity: 89 },
+  { name: "jacket", price: 2900, quantity: 48 },
+  { name: "trousers", price: 1450, quantity: 52 },
+];
+
+function calcBasketTotalPrice(store, basket) {
+  let totalPrice = 0;
+  for (const item of basket) {
+    const neededGoods = store.find((goods) => goods.name === item.name);
+    totalPrice += neededGoods.price * item.quantity;
+  }
+  return totalPrice;
+}
+
+console.log(
+  calcBasketTotalPrice(goodsStore, [
+    { name: "dress", quantity: 1 },
+    { name: "skirt", quantity: 1 },
+    { name: "shirt", quantity: 2 },
+    { name: "trousers", quantity: 1 },
+  ])
+);
