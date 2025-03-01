@@ -1080,3 +1080,27 @@ console.log(
     { name: "trousers", quantity: 1 },
   ])
 );
+
+// task
+const playList = {
+  name: "My amazing play list",
+  rating: 5,
+  tracks: ["track-1", "track-2", "track-3"],
+  changeName(newName = "Relax playList") {
+    this.name = newName;
+  },
+  addTrack(track) {},
+  updateRating(newRating) {},
+  getTracksCount() {},
+};
+
+const newPlayList = {
+  ...playList,
+  name: "Relax",
+};
+
+playList.changeName();
+newPlayList.changeName("Training");
+
+console.log(playList);
+console.log(newPlayList);
