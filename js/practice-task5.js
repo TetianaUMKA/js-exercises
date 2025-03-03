@@ -1089,9 +1089,15 @@ const playList = {
   changeName(newName = "Relax playList") {
     this.name = newName;
   },
-  addTrack(track) {},
-  updateRating(newRating) {},
-  getTracksCount() {},
+  addTrack(track) {
+    this.tracks.push(track);
+  },
+  updateRating(newRating) {
+    this.rating = newRating;
+  },
+  getTracksCount() {
+    return this.tracks.length;
+  },
 };
 
 const newPlayList = {
@@ -1104,3 +1110,57 @@ newPlayList.changeName("Training");
 
 console.log(playList);
 console.log(newPlayList);
+
+playList.addTrack("new track");
+playList.updateRating(8);
+console.log(playList.getTracksCount());
+
+// task
+const defaultSettings = {
+  showNotifications: true,
+  hideSidebar: false,
+  theme: "light",
+};
+
+const userSettings = {
+  showNotifications: false,
+  hideSidebar: false,
+  theme: "dark",
+};
+
+const finalSettings = {
+  ...defaultSettings,
+  ...userSettings,
+};
+
+console.log(finalSettings);
+
+// task
+function getAllPropValues(propName) {
+  const products = [
+    { name: "Radar", price: 1300, quantity: 6 },
+    { name: "Scanner", price: 2700, quantity: 8 },
+    { name: "Droid", price: 700, quantity: 4 },
+  ];
+
+  const values = [];
+
+  for (const product of products) {
+    // way #1
+    // if (product[propName] === undefined) {
+    //   return values;
+    // }
+    // values.push(product[propName]);
+    // way #2
+    // if (propName in product) values.push(product[propName]);
+    // way #3
+    if (product[propName]) {
+      values.push(product[propName]);
+    }
+  }
+
+  return values;
+}
+
+console.log(getAllPropValues("price"));
+console.log(getAllPropValues("wrong"));
