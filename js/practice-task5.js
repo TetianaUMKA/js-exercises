@@ -1182,3 +1182,6 @@ const allCars = [
 
 const getModels = (cars) => cars.map((car) => car.model);
 console.log(getModels(allCars));
+
+const makeCarsWithDiscount = (cars, discount) =>
+  cars.map((car) => ({ ...car, price: car.price * (1 - discount) }));
