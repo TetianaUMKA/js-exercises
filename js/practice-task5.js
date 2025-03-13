@@ -1185,3 +1185,9 @@ console.log(getModels(allCars));
 
 const makeCarsWithDiscount = (cars, discount) =>
   cars.map((car) => ({ ...car, price: car.price * (1 - discount) }));
+console.log(makeCarsWithDiscount(allCars, 0.2));
+
+const getCertainBrandCars = (cars, brand) =>
+  cars.filter((car) => car.make === brand);
+console.log(getCertainBrandCars(allCars, "Mazda"));
+console.log(getCertainBrandCars(allCars, "Toyota"));
