@@ -1191,3 +1191,10 @@ const getCertainBrandCars = (cars, brand) =>
   cars.filter((car) => car.make === brand);
 console.log(getCertainBrandCars(allCars, "Mazda"));
 console.log(getCertainBrandCars(allCars, "Toyota"));
+
+const numbers5 = [3, 14, 78, 45, 63, 89, 78, 3];
+const filteredNumbers5 = numbers5.filter((number, idx, arr) => {
+  console.log(arr.indexOf(number), idx);
+  return arr.indexOf(number) === idx;
+});
+console.log(filteredNumbers5);
