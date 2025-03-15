@@ -1187,10 +1187,15 @@ const makeCarsWithDiscount = (cars, discount) =>
   cars.map((car) => ({ ...car, price: car.price * (1 - discount) }));
 console.log(makeCarsWithDiscount(allCars, 0.2));
 
-const getCertainBrandCars = (cars, brand) =>
+const filteredByBrand = (cars, brand) =>
   cars.filter((car) => car.make === brand);
-console.log(getCertainBrandCars(allCars, "Mazda"));
-console.log(getCertainBrandCars(allCars, "Toyota"));
+console.log(filteredByBrand(allCars, "Mazda"));
+console.log(filteredByBrand(allCars, "Toyota"));
+
+const filteredByPrice = (cars, lowPrice, highPrice) =>
+  cars.filter((car) => car.price >= lowPrice && car.price <= highPrice);
+console.log(filteredByPrice(allCars, 25000, 32000));
+console.log(filteredByPrice(allCars, 0, 28000));
 
 const numbers5 = [3, 14, 78, 45, 63, 89, 78, 3];
 const filteredNumbers5 = numbers5.filter((number, idx, arr) => {
