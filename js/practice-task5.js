@@ -1266,10 +1266,19 @@ console.log(hasGuarantee); // false
 const hasGuarantee2 = allCars.some((car) => car.hasGuarantee);
 console.log(hasGuarantee2); // true
 
+// using reduce
 const warehouseTotalPrice = allCars.reduce((acc, car) => {
   return (acc += car.amount * car.price);
 }, 0);
-console.log(warehouseTotalPrice);
+console.log(warehouseTotalPrice); // 3047700
+
+// using forEach
+const countWarehouseTotalPrice = (cars) => {
+  let warehouseTotalPrice = 0;
+  cars.forEach((car) => (warehouseTotalPrice += car.amount * car.price));
+  return warehouseTotalPrice;
+};
+console.log(countWarehouseTotalPrice(allCars)); // 3047700
 
 // other tasks
 const numbers5 = [3, 14, 78, 45, 63, 89, 78, 3];
