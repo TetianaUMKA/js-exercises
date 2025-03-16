@@ -1280,6 +1280,21 @@ const countWarehouseTotalPrice = (cars) => {
 };
 console.log(countWarehouseTotalPrice(allCars)); // 3047700
 
+const sortedByLowerCarPrice = allCars.toSorted((curCar, nextCar) => {
+  return curCar.price - nextCar.price;
+});
+console.log(sortedByLowerCarPrice);
+
+const sortedByHigherCarPrice = allCars.toSorted(
+  (curCar, nextCar) => nextCar.price - curCar.price
+);
+console.log(sortedByHigherCarPrice);
+
+const sortedByAlphabet = allCars.toSorted((curCar, nextCar) =>
+  curCar.make.localeCompare(nextCar.make)
+);
+console.log(sortedByAlphabet);
+
 // other tasks
 const numbers5 = [3, 14, 78, 45, 63, 89, 78, 3];
 const filteredNumbers5 = numbers5.filter((number, idx, arr) => {
@@ -1292,6 +1307,16 @@ const total5 = numbers5.reduce((acc, number, idx, arr) => {
   return (acc += number);
 }, 0);
 console.log(total5);
+
+const sortedResult = numbers5.toSorted((curEl, nextEl) => {
+  return curEl - nextEl;
+});
+console.log(sortedResult);
+
+const sortedResult2 = numbers5.toSorted((curEl, nextEl) => {
+  return nextEl - curEl;
+});
+console.log(sortedResult2);
 
 // to avoid code crashing we can use the "?" command
 console.log(allCars[0].color?.toLowerCase());
