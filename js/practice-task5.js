@@ -1168,16 +1168,70 @@ console.log(getAllPropValues("wrong"));
 // task
 
 const allCars = [
-  { make: "Honda", model: "CR-V", amount: 14, price: 24045 },
-  { make: "Honda", model: "Accord", amount: 2, price: 22455 },
-  { make: "Mazda", model: "Mazda 6", amount: 8, price: 24195 },
-  { make: "Mazda", model: "CX-9", amount: 7, price: 31520 },
-  { make: "Toyota", model: "4Runner", amount: 19, price: 34210 },
-  { make: "Toyota", model: "Sequoia", amount: 16, price: 45560 },
-  { make: "Toyota", model: "Tacoma", amount: 4, price: 24320 },
-  { make: "Ford", model: "F-150", amount: 11, price: 27110 },
-  { make: "Ford", model: "Fusion", amount: 13, price: 22120 },
-  { make: "Ford", model: "Explorer", amount: 6, price: 31660 },
+  {
+    make: "Honda",
+    model: "CR-V",
+    amount: 14,
+    price: 24045,
+    hasGuarantee: true,
+  },
+  {
+    make: "Honda",
+    model: "Accord",
+    amount: 2,
+    price: 22455,
+    hasGuarantee: true,
+  },
+  {
+    make: "Mazda",
+    model: "Mazda 6",
+    amount: 8,
+    price: 24195,
+    hasHistory: true,
+  },
+  { make: "Mazda", model: "CX-9", amount: 7, price: 31520, hasGuarantee: true },
+  {
+    make: "Toyota",
+    model: "4Runner",
+    amount: 19,
+    price: 34210,
+    hasGuarantee: true,
+  },
+  {
+    make: "Toyota",
+    model: "Sequoia",
+    amount: 16,
+    price: 45560,
+    hasGuarantee: true,
+  },
+  {
+    make: "Toyota",
+    model: "Tacoma",
+    amount: 4,
+    price: 24320,
+    hasGuarantee: false,
+  },
+  {
+    make: "Ford",
+    model: "F-150",
+    amount: 11,
+    price: 27110,
+    hasGuarantee: false,
+  },
+  {
+    make: "Ford",
+    model: "Fusion",
+    amount: 13,
+    price: 22120,
+    hasGuarantee: true,
+  },
+  {
+    make: "Ford",
+    model: "Explorer",
+    amount: 6,
+    price: 31660,
+    hasGuarantee: true,
+  },
 ];
 
 const getModels = (cars) => cars.map((car) => car.model);
@@ -1187,6 +1241,12 @@ const makeCarsWithDiscount = (cars, discount) =>
   cars.map((car) => ({ ...car, price: car.price * (1 - discount) }));
 console.log(makeCarsWithDiscount(allCars, 0.2));
 
+/**
+ * Function represent filtered objects
+ * @param {Array} cars
+ * @param {String} brand
+ * @returns array of objects or empty array
+ */
 const filteredByBrand = (cars, brand) =>
   cars.filter((car) => car.make === brand);
 console.log(filteredByBrand(allCars, "Mazda"));
@@ -1197,9 +1257,45 @@ const filteredByPrice = (cars, lowPrice, highPrice) =>
 console.log(filteredByPrice(allCars, 25000, 32000));
 console.log(filteredByPrice(allCars, 0, 28000));
 
+const getCarByModel = (cars, model) => cars.find((car) => car.model === model);
+console.log(getCarByModel(allCars, "CX-9"));
+
+const hasGuarantee = allCars.every((car) => car.hasGuarantee);
+console.log(hasGuarantee); // false
+
+const hasGuarantee2 = allCars.some((car) => car.hasGuarantee);
+console.log(hasGuarantee2); // true
+
+const warehouseTotalPrice = allCars.reduce((acc, car) => {
+  return (acc += car.amount * car.price);
+}, 0);
+console.log(warehouseTotalPrice);
+
+// other tasks
 const numbers5 = [3, 14, 78, 45, 63, 89, 78, 3];
 const filteredNumbers5 = numbers5.filter((number, idx, arr) => {
   console.log(arr.indexOf(number), idx);
   return arr.indexOf(number) === idx;
 });
 console.log(filteredNumbers5);
+
+const total5 = numbers5.reduce((acc, number, idx, arr) => {
+  return (acc += number);
+}, 0);
+console.log(total5);
+
+// to avoid code crashing we can use the "?" command
+console.log(allCars[0].color?.toLowerCase());
+
+const allSalary = {
+  jones: 18700,
+  smith: 23600,
+  brown: 65000,
+  lee: 35200,
+  green: 24300,
+};
+
+const totalSalary = Object.values(allSalary).reduce((acc, salary) => {
+  return (acc += salary);
+}, 0);
+console.log(totalSalary);
