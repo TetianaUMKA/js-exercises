@@ -84,9 +84,9 @@ const customer = {
 
 customer.sayHello(); // "Hello, Jacob!"
 
-const greet = customer.sayHello.bind(customer);
+const greet4 = customer.sayHello.bind(customer);
 
-greet(); // "Hello, Jacob!"
+greet4(); // "Hello, Jacob!"
 
 function sayHello(greeting) {
   console.log(`${greeting}, ${this.name}!`);
@@ -96,6 +96,34 @@ const user = {
   name: "Alice",
 };
 
-const greet = sayHello.bind(user);
+const greet5 = sayHello.bind(user);
 
-greet("Hello"); // "Hello, Alice"
+greet5("Hello"); // "Hello, Alice"
+
+// task
+const library = {
+  books: 1923,
+  logBookCount() {
+    console.log(this.books);
+  },
+};
+
+const showBooks = library.logBookCount.bind({ books: 724 });
+
+showBooks(); // 724
+
+// task
+("use strict");
+
+const library2 = {
+  books: 1923,
+  logBookCount() {
+    console.log(this.books);
+  },
+};
+
+function showBooks2(callback) {
+  callback();
+}
+
+showBooks2(library2.logBookCount.bind(library2)); // 1923
