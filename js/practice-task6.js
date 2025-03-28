@@ -127,3 +127,54 @@ function showBooks2(callback) {
 }
 
 showBooks2(library2.logBookCount.bind(library2)); // 1923
+
+// [[Prototype]]
+
+const parent = {
+  name: "Stacey",
+  surname: "Moore",
+  age: 54,
+  heritage: "Irish",
+};
+
+const child = Object.create(parent);
+child.name = "Jason";
+child.age = 27;
+
+console.log(parent.isPrototypeOf(child)); // true
+
+console.log(child.hasOwnProperty("name")); // true
+console.log(child.hasOwnProperty("age")); // true
+console.log(child.hasOwnProperty("surname")); // false
+console.log(child.hasOwnProperty("heritage")); // false
+console.log(child.age); // 27
+console.log(child.name); // Jason
+console.log(child.heritage); // Irish
+
+console.log(parent.hasOwnProperty("surname")); // true
+console.log(parent.hasOwnProperty("heritage")); // true
+console.log(parent.age); // 54
+console.log(parent.name); // Stacey
+console.log(parent.heritage); // Irish
+
+// examples of using of for...in
+const animal = { legs: 4 };
+const dog = Object.create(animal);
+dog.name = "Mango";
+
+for (const key in dog) {
+  if (dog.hasOwnProperty(key)) {
+    console.log(key); // "name"
+  }
+}
+// replacement of for...in to for...of by using Object.keys, Object.values
+const animal2 = { legs: 4 };
+const dog2 = Object.create(animal2);
+dog2.name = "Mango";
+
+console.log(Object.keys(dog2)); // ["name"]
+console.log(Object.values(dog2)); // ["Mango"]
+
+for (const key of Object.keys(dog2)) {
+  console.log(key); // "name"
+}
