@@ -203,3 +203,28 @@ console.log(objA.c); // "objC prop"
 
 console.log(objA.hasOwnProperty("x")); // false
 console.log(objA.x); // undefined
+
+// task
+const ancestor1 = {
+  name: "Paul",
+  age: 83,
+  surname: "Dawson",
+  heritage: "Irish",
+};
+
+const parent1 = Object.create(ancestor1);
+parent1.name = "Stacey";
+parent1.surname = "Moore";
+parent1.age = 54;
+
+const child1 = Object.create(parent1);
+child1.name = "Jason";
+child1.age = 27;
+
+console.log(ancestor1.hasOwnProperty("heritage")); // true
+console.log(child1.hasOwnProperty("heritage")); // false
+console.log(child1.heritage); // Irish
+
+console.log(ancestor1.isPrototypeOf(parent1)); // true
+console.log(parent1.isPrototypeOf(child1)); // true
+console.log(ancestor1.isPrototypeOf(child1)); // true
