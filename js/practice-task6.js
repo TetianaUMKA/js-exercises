@@ -228,3 +228,22 @@ console.log(child1.heritage); // Irish
 console.log(ancestor1.isPrototypeOf(parent1)); // true
 console.log(parent1.isPrototypeOf(child1)); // true
 console.log(ancestor1.isPrototypeOf(child1)); // true
+
+console.log(window.document);
+console.dir(window.document);
+
+// Object-Oriented Programming
+// class ObjectName {} - declaring of class
+// new ObjectName() - creating of new template by ObjectName Prototype
+
+class createUser {
+  constructor(id, password, name) {
+    this.id = this.id;
+    this.password = this.password;
+    this.name = name;
+    this.cart = [];
+  }
+  addToCart(product) {
+    this.cart.push(product);
+  }
+}
