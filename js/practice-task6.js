@@ -247,3 +247,48 @@ class createUser {
     this.cart.push(product);
   }
 }
+
+class User {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+}
+
+const jonas = new User("Jonas", "jonas@mail.com");
+console.log(jonas); // { name: 'Jonas', email: 'jonas@mail.com' }
+
+const emma = new User("Emma", "emma@mail.com");
+console.log(emma); // { name: Emma', email: 'emma@mail.com' }
+
+// task
+class Car {
+  constructor(brand, model, price) {
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+  }
+}
+
+console.log(new Car("Nissan", "Murano", 31700)); // {brand: "Nissan", model: "Murano", price: 31700}
+
+console.log(new Car("Audi", "Q3", 36000)); // {brand: "Audi", model: "Q3", price: 36000}
+
+console.log(new Car("BMW", "X5", 58900)); // //{brand: "BMW", model: "X5", price: 58900}
+
+// the params object
+
+class User2 {
+  constructor(params) {
+    this.name = params.name;
+    this.email = params.email;
+  }
+}
+
+const ben = new User({
+  name: "Ben",
+  email: "ben@mail.com",
+});
+
+console.log(ben);
+// { name: "Ben", email: "ben@mail.com" }
