@@ -292,3 +292,89 @@ const ben = new User({
 
 console.log(ben);
 // { name: "Ben", email: "ben@mail.com" }
+
+class User3 {
+  constructor(params) {
+    this.name = params.name;
+    this.email = params.email;
+  }
+
+  getEmail() {
+    return this.email;
+  }
+
+  changeEmail(newEmail) {
+    this.email = newEmail;
+  }
+}
+
+const anna = new User3({
+  name: "Anna",
+  email: "annao@mail.com",
+});
+
+console.log(anna.getEmail()); // "anna@mail.com"
+
+anna.changeEmail("new@mail.com");
+
+console.log(anna.getEmail()); // "new@mail.com"
+
+class Car2 {
+  constructor(params) {
+    this.brand = params.brand;
+    this.model = params.model;
+    this.price = params.price;
+  }
+
+  getPrice() {
+    return this.price;
+  }
+
+  changePrice(newPrice) {
+    this.price = newPrice;
+  }
+}
+
+const lexus = new Car2({ brand: "Lexus", model: "RX", price: 84000 });
+console.log(lexus);
+console.log(lexus.getPrice()); // 84000
+lexus.changePrice(78000);
+console.log(lexus.getPrice()); // 78000
+console.log(lexus.price); // 78000
+
+console.log(Car2.prototype); // {gePrice: f, changePrice: f}
+console.dir(Car2.prototype); // {gePrice: f, constructor: f,  changePrice: f}
+
+class Car3 {
+  #brand;
+
+  constructor(params) {
+    this.#brand = params.brand;
+    this.model = params.model;
+    this.price = params.price;
+  }
+
+  getPrice() {
+    return this.price;
+  }
+
+  changePrice(newPrice) {
+    this.price = newPrice;
+  }
+
+  getBrand() {
+    return this.#brand;
+  }
+
+  changeBrand(newBrand) {
+    this.#brand = newBrand;
+  }
+}
+
+const newCar = new Car3({
+  brand: "Toyota",
+  model: "Land Cruiser 300",
+  price: 112000,
+});
+
+console.log(newCar.brand, newCar.model, newCar.price); // undefined 'Land Cruiser 300' 112000
