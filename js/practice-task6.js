@@ -345,6 +345,7 @@ console.log(lexus.price); // 78000
 console.log(Car2.prototype); // {gePrice: f, changePrice: f}
 console.dir(Car2.prototype); // {gePrice: f, constructor: f,  changePrice: f}
 
+// private properties
 class Car3 {
   #brand;
 
@@ -367,6 +368,10 @@ class Car3 {
   }
 
   changeBrand(newBrand) {
+    if (newBrand.length < 2) {
+      console.log("Incorrect brand name!");
+      return;
+    }
     this.#brand = newBrand;
   }
 }
@@ -378,3 +383,187 @@ const newCar = new Car3({
 });
 
 console.log(newCar.brand, newCar.model, newCar.price); // undefined 'Land Cruiser 300' 112000
+console.log(newCar.brand); // undefined
+
+newCar.changeBrand("n"); // "Incorrect brand name!" #372
+console.log(newCar.getBrand()); // undefined
+
+newCar.changeBrand("newBrandName");
+console.log(newCar.getBrand()); // newBrandName
+console.log(newCar.brand); // undefined
+
+// private methods
+class User4 {
+  #email;
+
+  constructor(params) {
+    this.name = params.name;
+    this.email = params.email;
+  }
+
+  getEmail() {
+    return this.email;
+  }
+
+  changeEmail(newEmail) {
+    if (this.#validateEmail(newEmail)) {
+      this.#email = newEmail;
+    } else {
+      console.log("Invalid email format");
+    }
+  }
+
+  #validateEmail(email) {
+    return email.includes("@");
+  }
+}
+
+const michel = new User4({
+  name: "Michel",
+  email: "michel@mail.com",
+});
+
+console.log(michel.getEmail());
+michel.changeEmail("michel200mail.com"); // 'Invalid email format'
+
+michel.changeEmail("michel200@mail.com");
+console.log(michel.getEmail()); // michel200@mail.com
+
+// get and set
+class User5 {
+  #email;
+
+  constructor(params) {
+    this.name = params.name;
+    this.#email = params.email;
+  }
+
+  get email() {
+    return this.#email;
+  }
+
+  set email(newEmail) {
+    if (newEmail === "") {
+      console.log("Error! The email field cannot be empty!");
+      return;
+    } else if (!newEmail.includes("@")) {
+      console.log("Invalid email format");
+    }
+    this.#email = newEmail;
+  }
+}
+
+const newUser = new User({
+  name: "Kevin",
+  email: "kevin@mail.com",
+});
+
+console.log(newUser.email); // kevin@mail.com
+
+newUser.email = "kevin@supermail.com";
+
+console.log(newUser.email); // kevin@supermail.com
+
+// task
+class Car6 {
+  #brand;
+  #model;
+  #price;
+
+  constructor(params) {
+    this.#brand = params.brand;
+    this.#model = params.model;
+    this.#price = params.price;
+  }
+
+  get brand() {
+    return this.#brand;
+  }
+
+  set brand(newBrand) {
+    this.#brand = newBrand;
+  }
+
+  get model() {
+    return this.#model;
+  }
+
+  set model(newModel) {
+    this.#model = newModel;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    this.#price = newPrice;
+  }
+}
+
+// static properties
+
+class User7 {
+  #email;
+  #role;
+
+  static roles = {
+    admin: "admin",
+    editor: "editor",
+    basic: "basic",
+  };
+
+  constructor(params) {
+    this.#email = params.email;
+    this.#role = params.role || User.roles.basic;
+  }
+
+  get role() {
+    return this.#role;
+  }
+
+  set role(newRole) {
+    this.#role = newRole;
+  }
+}
+
+const newUser7 = new User7({
+  email: "monika@mail.com",
+  role: User7.roles.admin,
+});
+
+console.log(newUser7.role); // "admin"
+newUser7.role = User7.roles.editor;
+console.log(newUser7.role); // "editor"
+
+// task
+
+class Car8 {
+  #price;
+
+  static maxPrice = 50000;
+
+  constructor(params) {
+    this.#price = params.price;
+  }
+
+  get price() {
+    return this.#price;
+  }
+
+  set price(newPrice) {
+    if (newPrice > Car8.maxPrice) {
+      return;
+    }
+    this.#price = newPrice;
+  }
+}
+
+const audi = new Car8({ price: 35000 });
+console.log(audi.price); // 35000
+
+audi.price = 49000;
+console.log(audi.price); // 49000
+
+audi.price = 51000;
+console.log(audi.price); // 49000
