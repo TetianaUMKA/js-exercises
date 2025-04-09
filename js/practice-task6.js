@@ -567,3 +567,46 @@ console.log(audi.price); // 49000
 
 audi.price = 51000;
 console.log(audi.price); // 49000
+
+// static methods
+class User8 {
+  static #takenEmails = [];
+
+  static isEmailTaken(email) {
+    return User8.#takenEmails.includes(email);
+  }
+
+  #email;
+
+  constructor(params) {
+    this.#email = params.email;
+    User8.#takenEmails.push(params.email);
+  }
+}
+
+const newUser8 = new User8({ email: "luke@mail.com" });
+
+console.log(User8.isEmailTaken("richel@mail.com")); // false
+console.log(User8.isEmailTaken("luke@mail.com")); // true
+
+// task
+class Car9 {
+  static #maxPrice = 50000;
+
+  static checkPrice(price) {
+    if (price > Car9.#maxPrice) {
+      return "Error! Price exceeds the maximum";
+    }
+    return "Success! Price is within acceptable limits";
+  }
+
+  constructor(params) {
+    this.price = params.price;
+  }
+}
+
+const audi9 = new Car9({ price: 36000 });
+const bmw9 = new Car9({ price: 64000 });
+
+console.log(Car9.checkPrice(audi9.price)); // "Success! Price is within acceptable limits"
+console.log(Car9.checkPrice(bmw9.price)); // "Error! Price exceeds the maximum"
