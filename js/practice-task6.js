@@ -610,3 +610,151 @@ const bmw9 = new Car9({ price: 64000 });
 
 console.log(Car9.checkPrice(audi9.price)); // "Success! Price is within acceptable limits"
 console.log(Car9.checkPrice(bmw9.price)); // "Error! Price exceeds the maximum"
+
+// extends (class inheritance)
+
+class User9 {
+  #email;
+
+  constructor(email) {
+    this.#email = email;
+  }
+
+  get email() {
+    return this.#email;
+  }
+
+  set email(newEmail) {
+    this.#email = newEmail;
+  }
+}
+
+class ContentEditor extends User9 {
+  //...//
+}
+
+const editor = new ContentEditor("bruno@mail.com");
+console.log(editor); // { #email: "bruno@mail.com" }
+console.log(editor.email); // "bruno@mail.com"
+
+// child class constructor
+
+class User10 {
+  #email;
+
+  constructor(email) {
+    this.#email = email;
+  }
+
+  get email() {
+    return this.#email;
+  }
+
+  set email(newEmail) {
+    this.#email = newEmail;
+  }
+}
+
+class ContentEditor2 extends User10 {
+  constructor(params) {
+    // The call of the parent class constructor User
+    super(params.email);
+
+    this.posts = params.posts;
+  }
+}
+
+const editor2 = new ContentEditor2({
+  email: "mango@mail.com",
+  posts: [],
+});
+console.log(editor2); // { #email: "mango@mail.com", posts: [] }
+console.log(editor2.email); // "mango@mail.com"
+
+// task
+
+class User11 {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  // set email(newEmail) {
+  //   this.email = newEmail;
+  // }
+}
+
+class Admin extends User11 {
+  static role = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+
+  constructor(params) {
+    super(params.email);
+    this.access = params.access;
+  }
+}
+
+const grace = new Admin({
+  email: "grace@mail.com",
+  access: Admin.role.SUPERUSER,
+});
+
+console.log(grace.email); // "grace@mail.com"
+console.log(grace.access); // "superuser"
+
+// task
+class User12 {
+  email;
+
+  constructor(email) {
+    this.email = email;
+  }
+
+  get email() {
+    return this.email;
+  }
+
+  // set email(newEmail) {
+  //   this.email = newEmail;
+  // }
+}
+class Admin2 extends User12 {
+  static role = {
+    BASIC: "basic",
+    SUPERUSER: "superuser",
+  };
+
+  blacklistedEmails = [];
+
+  constructor(params) {
+    super(params.email);
+    this.access = params.access;
+  }
+
+  blacklist(email) {
+    this.blacklistedEmails.push(email);
+  }
+
+  isBlacklisted(email) {
+    return this.blacklistedEmails.includes(email);
+  }
+}
+
+const rose = new Admin2({
+  email: "rose@mail.com",
+  access: Admin2.role.SUPERUSER,
+});
+
+console.log(rose.email); // "mango@mail.com"
+console.log(rose.access); // "superuser"
+rose.blacklist("poly@mail.com");
+console.log(rose.blacklistedEmails); // ["poly@mail.com"]
+console.log(rose.isBlacklisted("rose@mail.com")); // false
+console.log(rose.isBlacklisted("poly@mail.com")); // true
