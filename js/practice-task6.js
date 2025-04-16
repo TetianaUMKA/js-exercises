@@ -758,3 +758,37 @@ rose.blacklist("poly@mail.com");
 console.log(rose.blacklistedEmails); // ["poly@mail.com"]
 console.log(rose.isBlacklisted("rose@mail.com")); // false
 console.log(rose.isBlacklisted("poly@mail.com")); // true
+
+console.log(window);
+console.dir(window.document);
+
+// additional practice
+///
+const kandy = {
+  tag: "Kandy",
+  showTag() {
+    console.log(this); // undefined
+    // console.log(this.tag); // TypeError: Cannot read properties of undefined (reading 'tag')
+  },
+};
+
+function invokeAction(callback) {
+  console.log(callback); // showTag() { console.log(this.tag); }
+  callback(); // we lost an object context of this
+}
+
+invokeAction(kandy.showTag);
+///
+
+const arrow = {
+  tag: "Arrow",
+  amount: 0,
+
+  addAge: (number) => {
+    console.log(this); // undefined
+    // console.log(this.amount + number); // TypeError: Cannot read properties of undefined (reading 'amount')
+  },
+};
+
+arrow.addAge(5);
+// We got error, because 'this' in arrow function always refers on 'window' if we use 'use strict' or not, exception is only when we use 'type = 'module'', but any way, we would get this.amount === undefined
