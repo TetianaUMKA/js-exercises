@@ -791,4 +791,22 @@ const arrow = {
 };
 
 arrow.addAge(5);
-// We got error, because 'this' in arrow function always refers on 'window' if we use 'use strict' or not, exception is only when we use 'type = 'module'', but any way, we would get this.amount === undefined
+// We got error, because 'this' in arrow function always refers on 'window' if we use 'use strict' or not, exception is only when we use 'type = 'module'', but any way, we would get this.amount === undefined in this case
+
+const jacob = {
+  tag: "jacob",
+
+  showThisByArrowFn: () => {
+    console.log(this); // undefined
+  },
+
+  showThis: function () {
+    const arrowFn = () => {
+      console.log(this); // object { jacob ... }
+    };
+    arrowFn();
+  },
+};
+
+jacob.showThisByArrowFn();
+jacob.showThis();
