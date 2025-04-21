@@ -810,3 +810,34 @@ const jacob = {
 
 jacob.showThisByArrowFn();
 jacob.showThis();
+
+// task
+
+const product10 = {
+  name: "Smartphone",
+  price: 500,
+  discount(percent) {
+    return this.price - (this.price * percent) / 100;
+  },
+};
+
+const client = {
+  name: "Alice",
+  discountPercent: 8,
+  purchase() {
+    const newPrice = product10.discount(this.discountPercent);
+    console.log(
+      `${this.name} bought items with discount ${this.discountPercent}%. Amount due ${newPrice} UAH`
+    );
+  },
+};
+
+client.purchase();
+
+const anotherClient = {
+  name: "Jacob",
+  discountPercent: 25,
+  purchase: client.purchase,
+};
+
+anotherClient.purchase();
