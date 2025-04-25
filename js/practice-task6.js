@@ -841,3 +841,29 @@ const anotherClient = {
 };
 
 anotherClient.purchase();
+// task
+
+// const changeColor = function changeColor(color) {
+//   console.log(this.color); // black
+//   this.color = color;
+//   console.log(this.color); // red
+// };
+
+const hat = {
+  color: "black",
+  changeColor(color) {
+    console.log(this.color);
+    this.color = color;
+    console.log(this.color);
+  },
+};
+
+// changeColor.call(hat, "red");
+
+hat.changeColor("red");
+
+const sweater = {
+  color: "green",
+};
+
+hat.changeColor.call(sweater, "blue");
