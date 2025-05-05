@@ -867,3 +867,28 @@ const sweater = {
 };
 
 hat.changeColor.call(sweater, "blue");
+
+// Property [[Prototype]] //
+const cool = {
+  congrats: "Hello",
+};
+// create by prototyping
+const amazing = Object.create(cool);
+// cloning an object
+const interesting = Object.assign({}, cool);
+
+console.log(interesting);
+console.log(amazing);
+
+console.log(cool === amazing); // false
+console.log(cool === interesting); // false
+
+// reference to an object {cool}, therefore we will be able to mutate main object. That is a bad idea ‼️ //
+const awesome = Object.assign(cool);
+const incredible = cool;
+
+console.log(awesome);
+console.log(incredible);
+
+console.log(awesome === cool); // true
+console.log(incredible === cool); // true
